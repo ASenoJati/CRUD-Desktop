@@ -102,5 +102,19 @@ namespace CRUD
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 11, FontStyle.Bold);
             dataGridView1.DefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Regular);
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap imagebpm = new Bitmap(dataGridView1.Width, dataGridView1.Height);
+            dataGridView1.DrawToBitmap(imagebpm, new Rectangle(0, 0, imagebpm.Width, imagebpm.Height));
+            e.Graphics.DrawImage(imagebpm, 120, 20);
+        }
+
+        private void btnExportPDF_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
+            printPreviewDialog1.ShowDialog();
+        }
     }
 }
