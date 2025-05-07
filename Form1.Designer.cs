@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             lblNoID = new Label();
             txtNoID = new TextBox();
             lblNamaDepan = new Label();
@@ -45,6 +46,8 @@
             btnDelete = new Button();
             btnExportPDF = new Button();
             btnClose = new Button();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -197,6 +200,7 @@
             btnExportPDF.TabIndex = 3;
             btnExportPDF.Text = "Export PDF";
             btnExportPDF.UseVisualStyleBackColor = true;
+            btnExportPDF.Click += btnExportPDF_Click;
             // 
             // btnClose
             // 
@@ -207,6 +211,20 @@
             btnClose.TabIndex = 3;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
             // 
             // Form1
             // 
@@ -232,7 +250,7 @@
             Controls.Add(lblNoID);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "xcvb";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -257,5 +275,7 @@
         private Button btnDelete;
         private Button btnExportPDF;
         private Button btnClose;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
     }
 }
